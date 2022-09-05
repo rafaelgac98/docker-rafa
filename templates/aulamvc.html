@@ -3,12 +3,15 @@
         <form action="/gravar" method="POST">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" placeholder="Insira o nome"><br><br>
-            <label for="email">Email:</label>
-            <input type="text" name="email" placeholder="Insira o email"><br><br>
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" placeholder="Insira a senha"><br><br>
+            <label for="email">CPF:</label>
+            <input type="text" name="email" placeholder="Insira o CPF"><br><br>
+            <label for="senha">Endereço:</label>
+            <input type="password" name="senha" placeholder="Insira o endereço"><br><br>
             <input type="submit" value="Enviar">
             <button><a target="_blank" href='/templates/lista.html'>Listar dados</a></button>
         </form>
     </body>
 </html>
+
+
+CREATE TABLE tbl_aluno ( user_id BIGINT NOT NULL AUTO_INCREMENT, user_name VARCHAR(45) NULL, user_cpf VARCHAR(45) NULL, user_endereco VARCHAR(45) NULL, PRIMARY KEY (user_id));
