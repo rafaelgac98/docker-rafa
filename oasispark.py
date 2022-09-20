@@ -50,7 +50,7 @@ def main():
     return render_template('index.html')
 
 @app.route('/atendente')
-def cliente():
+def atendente():
     return render_template('cadastroatendente.html')
 
 @app.route('/cliente')
