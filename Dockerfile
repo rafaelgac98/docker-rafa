@@ -4,7 +4,6 @@ RUN pip install flask-mysql
 RUN mkdir templates
 RUN mkdir static
 COPY oasispark.py /app.py
-COPY Atendente.py /Atendente.py
 COPY templates/*  /templates/
 RUN chmod -R a+rwx static
 RUN chmod -R a+rwx templates
