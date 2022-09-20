@@ -50,10 +50,14 @@ def main():
     return render_template('index.html')
 
 @app.route('/cadastroatendente')
-def atendente():
+def cliente():
     return render_template('cadastroatendente.html')
 
-@app.route('/cadastroatendente', methods=['POST', 'GET'])
+@app.route('/cadastrocliente')
+def cliente():
+    return render_template('cadastrocliente.html')
+
+@app.route('/gravaratendente', methods=['POST', 'GET'])
 def cadastroatendente():
     cpf = request.form['CpfAtendente']
     nome = request.form['NomeAtendente']
@@ -70,15 +74,8 @@ def cadastroatendente():
         conn.commit()
         return render_template('index.html')
 
-@app.route('/cadastroatendente')
-def cliente():
-    return render_template('cadastroatendente.html')
 
-@app.route('/cadastrocliente')
-def cliente():
-    return render_template('cadastrocliente.html')
-
-@app.route('/cadastrocliente', methods=['POST', 'GET'])
+@app.route('/gravarcliente', methods=['POST', 'GET'])
 def cadastrocliente():
     cpf = request.form[Cliente.CpfCliente]
     nome = request.form[Cliente.NomeCliente]
