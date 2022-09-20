@@ -1,13 +1,20 @@
 import os
 from flask import Flask, render_template, request
 from flaskext.mysql import MySQL
-from Atendente import Atendente
 
 mysql = MySQL()
 app = Flask(__name__)
 
 
-
+class Atendente(object):
+    def __init__(self, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente):
+        self.CpfAtendente = CpfAtendente
+        self.NomeAtendente = NomeAtendente
+        self.SobrenomeAtendente = SobrenomeAtendente
+        self.RgAtendente = RgAtendente
+        self.EnderecoAtendente = EnderecoAtendente
+        self.SalarioAtendente = SalarioAtendente
+        self.TelefoneAtendente = TelefoneAtendente
 
 
 class Cliente(object):
