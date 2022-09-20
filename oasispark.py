@@ -6,15 +6,7 @@ mysql = MySQL()
 app = Flask(__name__)
 
 
-class Atendente(object):
-    def __init__(self, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente):
-        self.CpfAtendente = CpfAtendente
-        self.NomeAtendente = NomeAtendente
-        self.SobrenomeAtendente = SobrenomeAtendente
-        self.RgAtendente = RgAtendente
-        self.EnderecoAtendente = EnderecoAtendente
-        self.SalarioAtendente = SalarioAtendente
-        self.TelefoneAtendente = TelefoneAtendente
+
 
 
 class Cliente(object):
@@ -47,9 +39,9 @@ class Vaga(object):
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mudar123'
-app.config['MYSQL_DATABASE_DB'] = 'teste'
-app.config['MYSQL_DATABASE_HOST'] = '172.17.0.3'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'oasis'
+app.config['MYSQL_DATABASE_HOST'] = '127.0.0.1'
 mysql.init_app(app)
 
 
@@ -58,30 +50,29 @@ def main():
     return render_template('index.html')
 
 @app.route('/cadastroatendente')
-def cliente():
+def atendente():
     return render_template('cadastroatendente.html')
 
-@app.route('/cadastrocliente')
-def cliente():
-    return render_template('cadastrocliente.html')
-
-@app.route('/gravaratendente', methods=['POST', 'GET'])
+@app.route('/cadastroatendente', methods=['POST', 'GET'])
 def cadastroatendente():
-    Atendente = Atendente(request.form['CpfAtendente'],
-                         request.form['NomeAtendente'],
-                         request.form['SobrenomeAtendente'],
-                         request.form['RgAtendente'],
-                         request.form['EnderecoAtendente'],
-                         request.form['SalarioAtendente'],
-                         request.form['TelefoneAtendente'])
-
-    if Atendente.CpfAtendente and Atendente.NomeAtendente and Atendente.SobrenomeAtendente and Atendente.RgAtendente and Atendente.EnderecoAtendente and Atendente.SalarioAtendente and Atendente.TelefoneAtendente:
+    cpf = request.form['CpfAtendente']
+    nome = request.form['NomeAtendente']
+    sobrenome = request.form['SobrenomeAtendente']
+    rg = request.form['RgAtendente']
+    endereco = request.form['EnderecoAtendente']
+    salario = request.form['SalarioAtendente']
+    telefone = request.form['TelefoneAtendente']
+    if cpf and nome and sobrenome and rg and endereco and salario and telefone:
         conn = mysql.connect()
         cursor = conn.cursor()
         cursor.execute('insert into Atendente (CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente) VALUES (%s, %s, %s, %s, %s, %s, %s)',
-                           (Atendente.CpfAtendente, Atendente.NomeAtendente, Atendente.SobrenomeAtendente, Atendente.RgAtendente, Atendente.EnderecoAtendente, Atendente.SalarioAtendente, Atendente.TelefoneAtendente))
+                           (cpf, nome, sobrenome, rg, endereco, salario, telefone))
         conn.commit()
         return render_template('index.html')
+
+@app.route('/cadastroatendente')
+def cliente():
+    return render_template('cadastroatendente.html')
 
 @app.route('/cadastrocliente')
 def cliente():
