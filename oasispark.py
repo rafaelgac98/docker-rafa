@@ -49,11 +49,11 @@ mysql.init_app(app)
 def main():
     return render_template('index.html')
 
-@app.route('/cadastroatendente')
+@app.route('/atendente')
 def cliente():
     return render_template('cadastroatendente.html')
 
-@app.route('/cadastrocliente')
+@app.route('/cliente')
 def cliente():
     return render_template('cadastrocliente.html')
 
