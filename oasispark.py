@@ -59,13 +59,13 @@ def cliente():
 
 @app.route('/gravaratendente', methods=['POST', 'GET'])
 def gravaratendente():
-    cpf = request.form['CpfAtendente']
-    nome = request.form['NomeAtendente']
-    sobrenome = request.form['SobrenomeAtendente']
-    rg = request.form['RgAtendente']
-    endereco = request.form['EnderecoAtendente']
-    salario = request.form['SalarioAtendente']
-    telefone = request.form['TelefoneAtendente']
+    cpf = request.form['cpf']
+    nome = request.form['nome']
+    sobrenome = request.form['sobrenome']
+    rg = request.form['rg']
+    endereco = request.form['endereco']
+    salario = request.form['salario']
+    telefone = request.form['telefone']
     if cpf and nome and sobrenome and rg and endereco and salario and telefone:
         conn = mysql.connect()
         cursor = conn.cursor()
