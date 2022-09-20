@@ -58,7 +58,7 @@ def cliente():
     return render_template('cadastrocliente.html')
 
 @app.route('/gravaratendente', methods=['POST', 'GET'])
-def cadastroatendente():
+def gravaratendente():
     cpf = request.form['CpfAtendente']
     nome = request.form['NomeAtendente']
     sobrenome = request.form['SobrenomeAtendente']
@@ -76,7 +76,7 @@ def cadastroatendente():
 
 
 @app.route('/gravarcliente', methods=['POST', 'GET'])
-def cadastrocliente():
+def gravarcliente():
     cpf = request.form[Cliente.CpfCliente]
     nome = request.form[Cliente.NomeCliente]
     sobrenome = request.form[Cliente.SobrenomeCliente]
