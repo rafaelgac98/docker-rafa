@@ -58,8 +58,12 @@ def main():
     return render_template('index.html')
 
 @app.route('/cadastroatendente')
-def atendente():
+def cliente():
     return render_template('cadastroatendente.html')
+
+@app.route('/cadastrocliente')
+def cliente():
+    return render_template('cadastrocliente.html')
 
 @app.route('/gravaratendente', methods=['POST', 'GET'])
 def cadastroatendente():
