@@ -10,68 +10,69 @@
 </head>
   <body>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Cadastrar</button>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog " role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="CadastroAtendentelbl">Cadastre um atendente</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form action="/gravaratendente" method="POST" id="insert-atendente">
-              <div class="row">
-                  <div class="col-12 col-sm-12">
-                    <label for="cpfAtendente" class="col-form-label">CPF:</label>
-                    <input type="number" class="form-control col-md-4 .ml-auto" id="cpfAtendente" name="cpfAtendente">
+    <form action="/gravaratendente" method="POST" id="insert-atendente"></form>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="CadastroAtendentelbl">Cadastre um atendente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+                <div class="row">
+                    <div class="col-12 col-sm-12">
+                      <label for="cpfAtendente" class="col-form-label">CPF:</label>
+                      <input type="number" class="form-control col-md-4 .ml-auto" id="cpfAtendente" name="cpfAtendente">
+                    </div>
                   </div>
+                  <div class="row">                  
+                  <div class="col-6 col-sm-6">
+                    <label for="nomeAtendente" class="col-form-label">Nome:</label>
+                    <input type="text" class="form-control" name="nomeAtendente" id="nomeAtendente">
+                  </div>
+
+                  <div class="col-6 col-sm-6">
+                    <label for="sobrenomeAtendente" class="col-form-label">Sobrenome:</label>
+                    <input type="text" class="form-control" name="sobrenomeAtendente" id="sobrenomeAtendente">
+                  </div>
+                  
                 </div>
                 <div class="row">                  
-                <div class="col-6 col-sm-6">
-                  <label for="nomeAtendente" class="col-form-label">Nome:</label>
-                  <input type="text" class="form-control" name="nomeAtendente" id="nomeAtendente">
-                </div>
+                  <div class="col-6 col-sm-6">
+                    <label for="rgAtendente" class="col-form-label">RG:</label>
+                    <input type="number" class="form-control" name="rgAtendente" id="rgAtendente">
+                  </div>
 
-                <div class="col-6 col-sm-6">
-                  <label for="sobrenomeAtendente" class="col-form-label">Sobrenome:</label>
-                  <input type="text" class="form-control" name="sobrenomeAtendente" id="sobrenomeAtendente">
+                  <div class="col-6 col-sm-6">
+                    <label for="enderecoAtendente" class="col-form-label">Endereço:</label>
+                    <input type="text" class="form-control" name="enderecoAtendente" id="enderecoAtendente">
+                  </div>
+                  
                 </div>
-                
-              </div>
-              <div class="row">                  
-                <div class="col-6 col-sm-6">
-                  <label for="rgAtendente" class="col-form-label">RG:</label>
-                  <input type="number" class="form-control" name="rgAtendente" id="rgAtendente">
-                </div>
+                <div class="row">                  
+                  <div class="col-6 col-sm-6">
+                    <label for="salarioAtendente" class="col-form-label">Salário:</label>
+                    <input type="number" class="form-control" name="salarioAtendente" id="salarioAtendente">
+                  </div>
 
-                <div class="col-6 col-sm-6">
-                  <label for="enderecoAtendente" class="col-form-label">Endereço:</label>
-                  <input type="text" class="form-control" name="enderecoAtendente" id="enderecoAtendente">
+                  <div class="col-6 col-sm-6">
+                    <label for="telefoneAtendente" class="col-form-label">Telefone:</label>
+                    <input type="number" class="form-control" name="telefoneAtendente" id="telefoneAtendente">
+                  </div>                
                 </div>
-                
-              </div>
-              <div class="row">                  
-                <div class="col-6 col-sm-6">
-                  <label for="salarioAtendente" class="col-form-label">Salário:</label>
-                  <input type="number" class="form-control" name="salarioAtendente" id="salarioAtendente">
-                </div>
-
-                <div class="col-6 col-sm-6">
-                  <label for="telefoneAtendente" class="col-form-label">Telefone:</label>
-                  <input type="number" class="form-control" name="telefoneAtendente" id="telefoneAtendente">
-                </div>                
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <input type="submit" class="btn btn-primary" value="Cadastrar">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <input type="submit" class="btn btn-primary" value="Cadastrar">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  </form>
 
 
     <!-- <form action="/gravaratendente" method="POST">
