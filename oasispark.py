@@ -45,13 +45,13 @@ def veiculo():
 
 @app.route('/gravaratendente', methods=['POST', 'GET'])
 def gravaratendente():
-    cpfatendente = request.form['cpf']
-    nomeatendente = request.form['nome']
-    sobrenomeatendente = request.form['sobrenome']
-    rgatendente = request.form['rg']
-    enderecoatendente = request.form['endereco']
-    salarioatendente = request.form['salario']
-    telefoneatendente = request.form['telefone']
+    cpfatendente = request.form['cpfAtendente']
+    nomeatendente = request.form['nomeAtendente']
+    sobrenomeatendente = request.form['sobrenomeAtendente']
+    rgatendente = request.form['rgAtendente']
+    enderecoatendente = request.form['enderecoAtendente']
+    salarioatendente = request.form['salarioAtendente']
+    telefoneatendente = request.form['telefoneAtendente']
     if cpfatendente and nomeatendente and sobrenomeatendente and rgatendente and enderecoatendente and salarioatendente and telefoneatendente:
         conn = mysql.connect()
         cursor = conn.cursor()
