@@ -21,7 +21,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="/gravaratendente" method="POST">
+            <form action="/gravaratendente" method="POST" id="insert-atendente">
               <div class="row">
                   <div class="col-12 col-sm-12">
                     <label for="cpfAtendente" class="col-form-label">CPF:</label>
@@ -61,8 +61,7 @@
                 <div class="col-6 col-sm-6">
                   <label for="telefoneAtendente" class="col-form-label">Telefone:</label>
                   <input type="number" class="form-control" name="telefoneAtendente" id="telefoneAtendente">
-                </div>
-                
+                </div>                
               </div>
             </form>
           </div>
@@ -103,10 +102,16 @@
   $('#exampleModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
     modal.find('.modal-title').text('Cadastrar Atendente')
     modal.find('.modal-body input').val(recipient)
   })
+  $('#insert-atendente').on('submit', function(event){
+    event.preventDefault();
+    //Receber os dados do formulário
+    var dados = $("insert-atendente").serialize();
+    $.post("oasispark.py", dados, function(retorna){
+        alert("Deu certo")
+    });
+  });
 </script>
