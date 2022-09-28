@@ -1,7 +1,7 @@
 # docker-rafa
 # docker para teste - testes de aplicaçao para estacionamento
 
-# ---------------------------------------- DATA BASE OASIS PARK ----------------------------------------
+# --------------------- DATA BASE OASIS PARK -----------------------
 
 CRIANDO TABELA ATENDENTE------------------------
 
@@ -87,4 +87,4 @@ CREATE TABLE Veiculo (
 );
 
 
-#---------------------------------------- FIM DATA BASE OASIS PARK ----------------------------------------
+# ----------------- FIM DATA BASE OASIS PARK -------------------
