@@ -18,9 +18,9 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/atendente')
-def atendente():
-    return render_template('cadastroatendente.html')
+# @app.route('/atendente')
+# def atendente():
+#     return render_template('cadastroatendente.html')
 
 
 @app.route('/cliente')
@@ -132,7 +132,7 @@ def gravarveiculo():
     return render_template('cadastroveiculo.html')
 
 
-@app.route('/selectatendente', methods=['POST', 'GET'])
+@app.route('/atendente', methods=['POST', 'GET'])
 def selectatendente():
     conn = mysql.connect()
     cursor = conn.cursor()
