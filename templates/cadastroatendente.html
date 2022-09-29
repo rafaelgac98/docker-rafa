@@ -6,10 +6,43 @@
 <HTML lang="pt-BR">
 <head>
     <meta charset="utf-8">
-    <title>Oasis Park</title>
+    <title>Oasis Park - Atendente</title>
 </head>
   <body>
+    
+
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Cadastrar</button>
+
+    <table>
+      <tr><td> Listar Atendentes </td></tr>
+      
+      {% for item in datas %}
+      <tr>
+          <td>{{item[0]}}</td>
+          <td>{{item[1]}}</td>
+          <td>{{item[2]}}</td>
+          <td>{{item[3]}}</td>
+          <td>{{item[4]}}</td>
+          <td>{{item[5]}}</td>
+          <td>{{item[6]}}</td>
+      </tr>
+      {% endfor}
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <form action="/gravaratendente" method="POST" id="insert-atendente">
       
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
