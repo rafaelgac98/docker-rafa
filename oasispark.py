@@ -1,4 +1,4 @@
-import os
+import os, cgi, cgitb
 from flask import Flask, render_template, request
 from flaskext.mysql import MySQL
 
@@ -68,14 +68,14 @@ def gravarcliente():
     sobrenomecliente = request.form['sobrenomecliente']
     rgcliente = request.form['rgcliente']
     enderecocliente = request.form['enderecocliente']
-    cpfatendente = request.form['cpfatendente']
+    idAtendente = request.form['cpfatendente']
     telefonecliente = request.form['telefonecliente']
 
-    if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and cpfatendente and telefonecliente:
+    if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and idAtendente and telefonecliente:
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('insert into Cliente (CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, Cpfatendente, TelefoneCliente) VALUES (%s, %s, %s, %s, %s, %s, %s)',
-                       (cpfcliente, nomecliente, sobrenomecliente, rgcliente, enderecocliente, cpfatendente, telefonecliente))
+        cursor.execute('insert into Cliente (CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, idAtendente, TelefoneCliente) VALUES (%s, %s, %s, %s, %s, %s, %s)',
+                       (cpfcliente, nomecliente, sobrenomecliente, rgcliente, enderecocliente, idAtendente, telefonecliente))
         conn.commit()
     return render_template('cadastrocliente.html')
 
