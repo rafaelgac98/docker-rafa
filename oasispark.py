@@ -132,6 +132,16 @@ def gravarveiculo():
     return render_template('cadastroveiculo.html')
 
 
+@app.route('/selectatendente', methods=['POST', 'GET'])
+def selectatendente():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('select CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente')
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastroatendente.html',datas=data)
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5005))
     app.run(host='0.0.0.0', port=port)
