@@ -1,3 +1,4 @@
+from crypt import methods
 import os, cgi, cgitb
 from flask import Flask, render_template, request
 from flaskext.mysql import MySQL
@@ -18,9 +19,14 @@ def main():
     return render_template('index.html')
 
 
-# @app.route('/atendente')
-# def atendente():
-#     return render_template('cadastroatendente.html')
+@app.route('/listaratendente/<int:pk>/', methods=['GET'])
+def listaratendente():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente')
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('listaatendente.html', datas=data)
 
 
 @app.route('/cliente')
