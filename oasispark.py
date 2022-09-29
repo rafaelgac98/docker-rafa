@@ -136,7 +136,7 @@ def gravarveiculo():
 def selectatendente():
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('select CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente')
+    cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente')
     data = cursor.fetchall()
     conn.commit()
     return render_template('cadastroatendente.html',datas=data)
