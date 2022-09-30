@@ -75,24 +75,24 @@ def listaparaalteraatendente(pk):
     return render_template('alteraatendente.html', datas=data, pk = pk)
 
 
-@app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
-def alteraratendente(pk):
-    cpfAtendente = request.form['cpfAtendente']
-    nomeAtendente = request.form['nomeAtendente']
-    sobrenomeAtendente = request.form['sobrenomeAtendente']
-    rgAtendente = request.form['rgAtendente']
-    enderecoAtendente = request.form['enderecoAtendente']
-    salarioAtendente = request.form['salarioAtendente']
-    telefoneAtendente = request.form['telefoneAtendente']
+# @app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
+# def alteraratendente(pk):
+#     cpfAtendente = request.form['cpfAtendente']
+#     nomeAtendente = request.form['nomeAtendente']
+#     sobrenomeAtendente = request.form['sobrenomeAtendente']
+#     rgAtendente = request.form['rgAtendente']
+#     enderecoAtendente = request.form['enderecoAtendente']
+#     salarioAtendente = request.form['salarioAtendente']
+#     telefoneAtendente = request.form['telefoneAtendente']
 
-    if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
-        conn = mysql.connect()
-        cursor = conn.cursor()
-        cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idAtendente=%s',
-                       (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, str(pk)))
-        conn.commit()
+#     if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
+#         conn = mysql.connect()
+#         cursor = conn.cursor()
+#         cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idAtendente=%s',
+#                        (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, str(pk)))
+#         conn.commit()
 
-    return render_template('alteraatendente.html', pk = pk)
+#     return render_template('alteraatendente.html', pk = pk)
 
 
 
