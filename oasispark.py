@@ -92,7 +92,7 @@ def alteraratendente(pk):
                        (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, str(pk)))
         conn.commit()
 
-    return render_template('alteraatendente.html', datas=data, pk = pk)
+    return render_template('alteraatendente.html', pk = pk)
 
 
 
