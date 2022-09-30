@@ -74,7 +74,7 @@
             <td>
               <a href="/listaratendente/{{item[0]}}/" class="btn btn-dark">VIEW</a>
               <a href="" class="btn btn-primary">UPDATE</a>
-              <a href="/deletaratendente/{{item[0]}}/" class="btn btn-danger">DELETE</a>
+              <a href="/deletaratendente/{{item[0]}}/" class="btn btn-danger btnDel">DELETE</a>
             </td>
           </tr>
           {% endfor %}
@@ -202,6 +202,9 @@
       <br><br>
       <input type="submit" value="enviar" />
     </form> -->
+
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
   </body>
 </HTML>
 
