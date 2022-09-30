@@ -23,7 +23,7 @@ def main():
 def listaratendente(pk):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + pk)
+    cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + str(pk))
     data = cursor.fetchall()
     conn.commit()
     return render_template('listaatendente.html', datas=data, pk = pk)
