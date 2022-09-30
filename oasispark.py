@@ -59,6 +59,33 @@ def veiculo():
     return render_template('cadastroveiculo.html')
 
 
+@app.route('/alteraratendente/<int:pk>/', methods=['GET'])
+def alteraratendente(pk):
+    
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    #return render_template('listaatendente.html', datas=data, pk = pk)
+
+    cpfAtendente = request.form['cpfAtendente']
+    nomeAtendente = request.form['nomeAtendente']
+    sobrenomeAtendente = request.form['sobrenomeAtendente']
+    rgAtendente = request.form['rgAtendente']
+    enderecoAtendente = request.form['enderecoAtendente']
+    salarioAtendente = request.form['salarioAtendente']
+    telefoneAtendente = request.form['telefoneAtendente']
+
+    if cpfAtendente and nomeAtendente and sobrenomeAtendente and rgAtendente and enderecoAtendente and salarioAtendente and telefoneAtendente:
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idAtendente=%s',
+                       (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, pk))
+        conn.commit()
+    return render_template('alterarcliente.html', datas=data, pk = pk)
+
+
 @app.route('/gravaratendente', methods=['POST', 'GET'])
 def gravaratendente():
     cpfatendente = request.form['cpfAtendente']
