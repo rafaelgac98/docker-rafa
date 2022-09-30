@@ -63,7 +63,7 @@ def veiculo():
 
 
 
-@app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
+@app.route('/listaparaalteraatendente/<int:pk>/', methods=['POST', 'GET'])
 def alteraratendente(pk):
     
     conn1 = mysql.connect()
@@ -73,6 +73,9 @@ def alteraratendente(pk):
     conn1.commit()
     #return render_template('listaatendente.html', datas=data, pk = pk)
 
+
+@app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
+def alteraratendente(pk):
     cpfAtendente = request.form['cpfAtendente']
     nomeAtendente = request.form['nomeAtendente']
     sobrenomeAtendente = request.form['sobrenomeAtendente']
