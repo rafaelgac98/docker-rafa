@@ -62,7 +62,9 @@
         </div> -->
 
         <div class="container pt-4">
+            
             <form action="/alteraratendente" method="GET">
+                {% for item in datas %}
                 <div class="row">
                     <div class="col-4 col-sm-4">
                         <label for="cpfAtendente">CPF</label>
@@ -106,6 +108,7 @@
                     </select>
                   </div> -->
                 </div>
+                {% endfor %}
                 <button type="submit" class="btn btn-primary">Alterar</button>
               </form>
 
