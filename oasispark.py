@@ -29,6 +29,16 @@ def listaratendente(pk):
     return render_template('listaatendente.html', datas=data, pk = pk)
 
 
+@app.route('/deletaratendente/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Atendente where idAtendente = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastroatendente.html', datas=data, pk = pk)
+
+
 @app.route('/cliente')
 def cliente():
     return render_template('cadastrocliente.html')
