@@ -64,8 +64,7 @@ def veiculo():
 
 
 @app.route('/listaparaalteraatendente/<int:pk>/', methods=['POST', 'GET'])
-def listaparaalteraatendente(pk):
-    
+def listaparaalteraatendente(pk):    
     conn1 = mysql.connect()
     cursor1 = conn1.cursor()
     cursor1.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + str(pk))
