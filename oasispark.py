@@ -20,13 +20,13 @@ def main():
 
 
 @app.route('/listaratendente/<int:pk>/', methods=['GET'])
-def listaratendente(request, pk):
+def listaratendente(pk):
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + pk)
     data = cursor.fetchall()
     conn.commit()
-    return render_template(request, 'listaatendente.html', datas=data, pk = pk)
+    return render_template('listaatendente.html', datas=data, pk = pk)
 
 
 @app.route('/cliente')
