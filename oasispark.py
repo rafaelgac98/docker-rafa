@@ -59,7 +59,7 @@ def veiculo():
     return render_template('cadastroveiculo.html')
 
 
-@app.route('/alteraratendente/<int:pk>/', methods=['GET'])
+@app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
 def alteraratendente(pk):
     
     conn = mysql.connect()
@@ -83,7 +83,7 @@ def alteraratendente(pk):
         cursor.execute('UPDATE Atendente SET CpfAtendente=%s, NomeAtendente=%s, SobrenomeAtendente=%s, RgAtendente=%s, EnderecoAtendente=%s, SalarioAtendente=%s, TelefoneAtendente=%s WHERE idAtendente=%s',
                        (cpfAtendente, nomeAtendente, sobrenomeAtendente, rgAtendente, enderecoAtendente, salarioAtendente, pk))
         conn.commit()
-    return render_template('alterarcliente.html', datas=data, pk = pk)
+    return render_template('alteraatendente.html', datas=data, pk = pk)
 
 
 @app.route('/gravaratendente', methods=['POST', 'GET'])
