@@ -72,6 +72,7 @@ def alteraratendente(pk):
     data = cursor1.fetchall()
     conn1.commit()
     #return render_template('listaatendente.html', datas=data, pk = pk)
+    return render_template('alteraatendente.html', datas=data, pk = pk)
 
 
 @app.route('/alteraratendente/<int:pk>/', methods=['POST', 'GET'])
@@ -195,6 +196,58 @@ def selectatendente():
     conn.commit()
     return render_template('cadastroatendente.html',datas=data)
 
+
+#DELETE
+
+#DELETAR ATENDENTE
+@app.route('/deletaratendente/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Atendente where idAtendente = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastroatendente.html', datas=data, pk = pk)
+
+#DELETAR MANOBRISTA
+@app.route('/deletarmanobrista/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Manobrista where idManobrista = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastromanobrista.html', datas=data, pk = pk)
+
+#DELETAR CLIENTE
+@app.route('/deletarcliente/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Cliente where idCliente = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastrocliente.html', datas=data, pk = pk)
+
+#DELETAR VAGA
+@app.route('/deletarvaga/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Vaga where idVaga = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastrovaga.html', datas=data, pk = pk)
+
+#DELETAR VEICULO
+@app.route('/deletarveiculo/<int:pk>/', methods=['GET'])
+def deletaratendente(pk):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE from Veiculo where idVeiculo = ' + str(pk))
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastroveiculo.html', datas=data, pk = pk)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5005))
