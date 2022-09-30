@@ -49,9 +49,8 @@
 
 
         <div class="container pt-4">
-            
-            <form action="/alteraratendente" method="GET">
-                {% for item in datas %}
+            {% for item in datas %}
+            <form action="/alteraratendente/{{item[0]}}" method="GET">                
                 <div class="row">
                     <div class="col-4 col-sm-4">
                         <label for="cpfAtendente">CPF</label>
@@ -95,10 +94,11 @@
                     </select>
                   </div> -->
                 </div>
-                {% endfor %}
+                
                 <button type="submit" class="btn btn-primary">Alterar</button>
+                <a href="/listaparaalteraatendente/{{item[0]}}/" class="btn btn-primary">UPDATE</a>
               </form>
-
+              {% endfor %}
         </div>
 
     </body>
