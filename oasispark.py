@@ -1,6 +1,6 @@
 from crypt import methods
 import os, cgi, cgitb
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flaskext.mysql import MySQL
 
 mysql = MySQL()
@@ -36,7 +36,7 @@ def deletaratendente(pk):
     cursor.execute('DELETE from Atendente where idAtendente = ' + str(pk))
     data = cursor.fetchall()
     conn.commit()
-    return render_template('cadastroatendente.html', datas=data, pk = pk)
+    return redirect('/atendente', datas=data, pk = pk)
 
 
 @app.route('/cliente')
@@ -74,7 +74,7 @@ def gravaratendente():
         cursor.execute('insert into Atendente (CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente) values (%s, %s, %s, %s, %s, %s, %s)',
                        (cpfatendente, nomeatendente, sobrenomeatendente, rgatendente, enderecoatendente, salarioatendente, telefoneatendente))
         conn.commit()
-    return render_template('cadastroatendente.html')
+    return redirect("/atendente")
 
 
 @app.route('/gravarcliente', methods=['POST', 'GET'])
