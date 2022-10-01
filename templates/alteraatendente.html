@@ -49,9 +49,9 @@
 
 
         <div class="container pt-4">
-            
+            {% for item in datas %}   
             <form action="/alteraratendente/{{item[0]}}/" method="POST">
-                {% for item in datas %}               
+                            
                 <div class="row">
                     <div class="col-4 col-sm-4">
                         <label for="cpfAtendente">CPF</label>
@@ -98,9 +98,9 @@
                 
                 <button type="submit" class="btn btn-primary">Alterar</button>
                 <a href="/alteraratendente/{{item[0]}}/" class="btn btn-primary">UPDATE</a>
-                {% endfor %} 
+                 
             </form>
-             
+            {% endfor %}
         </div>
 
     </body>
