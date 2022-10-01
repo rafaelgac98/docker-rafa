@@ -26,7 +26,7 @@ def listarcliente(pk):
     cursor.execute('select idCliente, CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, idAtendente, TelefoneCliente from Cliente where idCliente = ' + str(pk))
     data = cursor.fetchall()
     conn.commit()
-    return render_template('listacliente.html', datas=data, pk = pk)
+    return render_template('cadastrocliente.html', datas=data, pk = pk)
 
 
 @app.route('/deletecliente/<int:pk>/', methods=['GET'])
