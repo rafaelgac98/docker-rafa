@@ -79,10 +79,10 @@ def veiculo():
 def listaparaalteracliente(pk):    
     conn1 = mysql.connect()
     cursor1 = conn1.cursor()
-    cursor1.execute('select idAtendente, CpfAtendente, NomeAtendente, SobrenomeAtendente, RgAtendente, EnderecoAtendente, SalarioAtendente, TelefoneAtendente from Atendente where idAtendente = ' + str(pk))
+    cursor1.execute('select idCliente, CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, idAtendente, TelefoneCliente from Cliente where idCliente = ' + str(pk))
     data = cursor1.fetchall()
     conn1.commit()
-    #return render_template('listaatendente.html', datas=data, pk = pk)
+    
     return render_template('alteracliente.html', datas=data, pk = pk)
 
 
