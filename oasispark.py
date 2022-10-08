@@ -58,9 +58,6 @@ def deletaratendente(pk):
     return render_template('cadastroatendente.html', datas=data, pk = pk)
 
 
-@app.route('/cliente')
-def cliente():
-    return render_template('cadastrocliente.html')
 
 
 @app.route('/manobrista')
@@ -240,6 +237,17 @@ def selectatendente():
     data = cursor.fetchall()
     conn.commit()
     return render_template('cadastroatendente.html',datas=data)
+
+
+
+@app.route('/cliente', methods=['POST', 'GET'])
+def selectatendente():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('select idCliente, CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, idAtendente, TelefoneCliente from Cliente')
+    data = cursor.fetchall()
+    conn.commit()
+    return render_template('cadastrocliente.html',datas=data)
 
 
 #DELETE
