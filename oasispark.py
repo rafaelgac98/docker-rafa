@@ -99,8 +99,8 @@ def alterarcliente(pk):
     if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and idAtendente and telefonecliente:
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('UPDATE Cliente SET CpfCliente=%s, NomeCliente=%s, SobrenomeCliente=%s, RgCliente=%s, EnderecoCliente=%s, idAtendente=%s, TelefoneCliente=%s WHERE idCliente=%s',
-                       (cpfcliente, nomecliente, sobrenomecliente, rgcliente, enderecocliente, idAtendente,telefonecliente, str(pk)))
+        cursor.execute('UPDATE Cliente SET CpfCliente=%s, NomeCliente=%s, SobrenomeCliente=%s, RgCliente=%s, EnderecoCliente=%s, TelefoneCliente=%s WHERE idCliente=%s',
+                       (cpfcliente, nomecliente, sobrenomecliente, rgcliente, enderecocliente, telefonecliente, str(pk)))
 
     return render_template('alteracliente.html', pk = pk)
 
