@@ -95,7 +95,7 @@ def alterarcliente(pk):
     enderecocliente = request.form['EnderecoCliente']
     telefonecliente = request.form['TelefoneCliente']
 
-    if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and idAtendente and telefonecliente:
+    if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and telefonecliente:
         conn = mysql.connect()
         cursor = conn.cursor()
         cursor.execute('UPDATE Cliente SET CpfCliente=%s, NomeCliente=%s, SobrenomeCliente=%s, RgCliente=%s, EnderecoCliente=%s, TelefoneCliente=%s WHERE idCliente=%s',
