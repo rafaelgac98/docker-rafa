@@ -88,13 +88,12 @@ def listaparaalteracliente(pk):
 
 @app.route('/alterarcliente/<int:pk>/', methods=['POST', 'GET'])
 def alterarcliente(pk):
-    cpfcliente = request.form['cpfCliente']
-    nomecliente = request.form['nomeCliente']
-    sobrenomecliente = request.form['sobrenomeCliente']
-    rgcliente = request.form['rgCliente']
-    enderecocliente = request.form['enderecoCliente']
-    idAtendente = request.form['idAtendente']
-    telefonecliente = request.form['telefoneCliente']
+    cpfcliente = request.form['CpfCliente']
+    nomecliente = request.form['NomeCliente']
+    sobrenomecliente = request.form['SobrenomeCliente']
+    rgcliente = request.form['RgCliente']
+    enderecocliente = request.form['EnderecoCliente']
+    telefonecliente = request.form['TelefoneCliente']
 
     if cpfcliente and nomecliente and sobrenomecliente and rgcliente and enderecocliente and idAtendente and telefonecliente:
         conn = mysql.connect()
