@@ -241,7 +241,7 @@ def selectatendente():
 
 
 @app.route('/cliente', methods=['POST', 'GET'])
-def selectatendente():
+def selectcliente():
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.execute('select idCliente, CpfCliente, NomeCliente, SobrenomeCliente, RgCliente, EnderecoCliente, idAtendente, TelefoneCliente from Cliente')
